@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es" id="theme">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title> Carrito de compras </title>
+</head>
+
+<body class="bg-white dark:bg-slate-900">
+
+    <header>
+        <nav
+            class="bg-slate-100 dark:bg-slate-800 w-screen h-16 flex justify-between items-center pl-12 pr-12 lg:pl-20 lg:pr-20  fixed">
+            <a href="https://archer3291.github.io/Portafolio/" target="_blank"
+                class="text-blue-400 font-bold font-mono text-lg">
+                {{ Archer.dev }} </a>
+
+
+
+            <button id="dropdownNotificationButton" data-dropdown-toggle="dropdownNotification" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    id="icono" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-package dark:text-blue-400">
+                    <path d="M16.5 9.4 7.55 4.24" />
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                    <polyline points="3.29 7 12 12 20.71 7" />
+                    <line x1="12" x2="12" y1="22" y2="12" /></svg>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="dropdownNotification"
+                class="z-20 hidden w-full max-w-xl bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-800 dark:divide-gray-700"
+                aria-labelledby="dropdownNotificationButton">
+                <div
+                    class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
+                    Notifications
+                </div>
+                <div class="divide-y divide-gray-100 dark:divide-gray-700" id="carrito">
+                    <table id="lista-carrito" class="w-full text-center items-center">
+                        <thead>
+                            <tr class="dark:text-white">
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody class="dark:text-slate-200"></tbody>
+                    </table>
+                </div>
+                <a href="#" id="vaciar-carrito"
+                    class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+                    <div class="inline-flex items-center ">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-x-circle w-4 h-4 me-2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="m15 9-6 6" />
+                            <path d="m9 9 6 6" /></svg>
+                        Eliminar todo
+                    </div>
+                </a>
+            </div>
+
+            <button id="darkModeButton" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-moon-star w-6 h-6 hover:text-blue-400 duration-150 ease-in-out">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+                    <path d="M19 3v4" />
+                    <path d="M21 5h-4" />
+                </svg>
+            </button>
+
+            <button id="lightModeButton" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-sun-medium w-6 h-6 text-blue-400 hover:text-blue-300 duration-150 ease-in-out">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v1" />
+                    <path d="M12 20v1" />
+                    <path d="M3 12h1" />
+                    <path d="M20 12h1" />
+                    <path d="m18.364 5.636-.707.707" />
+                    <path d="m6.343 17.657-.707.707" />
+                    <path d="m5.636 5.636.707.707" />
+                    <path d="m17.657 17.657.707.707" />
+                </svg>
+            </button>
+
+        </nav>
+    </header>
+
+    <section class="grid lg:grid-cols-3 md:grid-cols-2 place-items-center pt-20" id="lista-cursos">
+
+        <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10">
+            <img class="rounded-t-lg bg-cover" src="assets/img/audifonos.jpg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo">Audifonos
+                    inalambricos
+                </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion">Unos bonitos audifonos
+                    inalambricos con la mejor tecnologia en bluetooth 5.0.</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$1,500.00</s> <span class="font-bold text-white"> $1,350.00 </span>
+                </p>
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="1">
+                    Agregar al Carrito
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10">
+            <img class="rounded-t-lg" src="assets/img/audifonos_ocelot.jpg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Audifonos
+                    Ocelot </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion">
+                    Audifonos Ocelot de gran calidad con luces RGB y microfono incluido.
+                </p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$1,430.00</s> <span class="font-bold text-white"> $1,000.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="2">
+                    Agregar al Carrito
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10">
+            <img class="rounded-t-lg" src="assets/img/escritorio.jpg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Escritorio
+                </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion">
+                    Un escritorio de madera con base de acero inoxidable muy recistente.
+                </p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$2,700.00</s> <span class="font-bold text-white"> $1,700.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="3">
+                    Agregar al Carrito
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img class="rounded-t-lg" src="assets/img/gabinete.jpg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Gabinete gamer
+                </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion">Un gabinete
+                    gamer con un bonito diseño de anime y luces RGB.
+                </p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$2,700.00</s> <span class="font-bold text-white"> $1,700.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="4">
+                    Agregar al carrito
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img class="rounded-t-lg" src="assets/img/monitor.jpg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Monitor de 32"
+                    pulgadas. </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion"> Un bonito monitor curvo de 32"
+                    ideal para juegos que requieren una gran calidad de video.</p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$4,700.00</s> <span class="font-bold text-white"> $3,500.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="5">
+                    Agregar al carrito
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img class="rounded-t-lg" src="assets/img/mouse_inalambrico.jpg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Mouse
+                    inalambrico </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion">
+                    Un mouse inalambrico con una gran compatibilidad con todos los sistemas operativos.
+                    sin delay, y con cable de entreada tipo C para conectar al PC.
+                </p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$1,200.00</s> <span class="font-bold text-white"> $950.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="6">
+                    Agregar al carrito
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10">
+            <a href="#">
+                <img class="rounded-t-lg" src="assets/img/mouse_pad.jpeg" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Mouse pad
+                    </h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion"> Bonito Mouse pad con goma
+                    antiderrapante, diseño de Miles Morales de la pelicula 'Spider man into the spider-verse'.
+                </p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$1,050.00</s> <span class="font-bold text-white"> $950.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="7">
+                    Agregar al carrito
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10">
+            <img class="rounded-t-lg" src="assets/img/silla_ocelot.jpeg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Silla gamer
+                    Ocelot </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion"> Silla gamer ergonomica de la
+                    marca Ocelot super comoda, reclinable y ajustable a diferente altura.
+                </p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$3,700.00</s> <span class="font-bold text-white"> $2,500.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="8">
+                    Agregar al carrito
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-10">
+            <img class="rounded-t-lg" src="assets/img/soporte_audifonos.jpg" alt="" />
+            <div class="p-5">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white titulo"> Soporte
+                    para audifonos </h5>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 descripcion"> Soporte para audifonos con
+                    luces RGB y puertos usb para tener mas puertos extra, con gomas antiderrapantes ideal para todo tipo
+                    de escritorios y mas para el que vendemos aqui mismo.
+                </p>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 grid grid-cols-2 precio">
+                    <s>$1,350.00</s> <span class="font-bold text-white"> $1,000.00 </span>
+                </p>
+
+                <a href="#"
+                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 agregar-carrito"
+                    data-id="9">
+                    Agregar al carrito
+                </a>
+            </div>
+        </div>
+
+
+    </section>
+    <div
+        class="bg-green-600 fixed -bottom-14 left-14 w-80 h-9 flex justify-center items-center rounded-md duration-300 ease-in-out text-white alerta">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-check-circle me-2 w-4 h-4">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" /></svg>
+        <p class="">Agregado Correctamente!</p>
+    </div>
+
+    <div
+        class="bg-red-600 fixed -bottom-14 left-14 w-80 h-9 flex justify-center items-center rounded-md duration-300 ease-in-out text-white alerta-eliminar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-x-circle w-4 h-4 me-2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="m15 9-6 6" />
+            <path d="m9 9 6 6" /></svg>
+        <p>Eliminado Correctamente!</p>
+    </div>
+
+    <div
+        class="bg-yellow-600 fixed -bottom-14 left-14 w-80 h-9 flex justify-center items-center rounded-md duration-300 ease-in-out text-white alerta-agregar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-alert-triangle w-4 h-4 me-2">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+            <path d="M12 9v4" />
+            <path d="M12 17h.01" /></svg>
+        <p>Agrega algunos productos primero</p>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dark_mode.js"></script>
+    <script src="assets/js/agregar_carrito.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+</body>
+
+</html>
